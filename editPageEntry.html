@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+    <div class="top-bar">
+        <h3><a href="home.html">Encyclopedia</a></h3>
+        <button class="toggle-button">&#9776;</button> <!-- Toggle button for sidebar -->
+    </div>
+    <aside class="sidebar"> <!-- Sidebar for navigation links -->
+        <ul class="nav-links">
+            <li><a href="./indexPage.html">Index</a></li>
+            <li><a href="./searchPage.html">Search</a></li>
+            <li><a href="./newPageEntry.html">New Page</a></li>
+            <li><a href="editPageEntry.html">Edit Page</a></li>
+            <li><a href="./randomArticle.html">Random Article</a></li>
+        </ul>
+    </aside>
+
+    <div class="editPage">
+        <h2>Edit Page</h2>
+
+        <form class="input-form" onsubmit="return saveChanges(event)">
+            <!-- Input fields to edit the existing page data -->
+            <div class="input-group">
+                <label for="title-input">Title:</label>
+                <input id="title-input" class="title-input" type="text" required />
+            </div>
+            <div class="input-group">
+                <label for="summary-input">Summary:</label>
+                <textarea id="summary-input" class="summary-input" rows="5" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="details-input">Details:</label>
+                <textarea id="details-input" class="details-input" required></textarea>
+            </div>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to load the existing page data for editing
+        function loadPageData() {
+    // Extract URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Get the values of title, summary, and details from the URL parameters
+    const title = urlParams.get('title');
+    const summary = urlParams.get('summary');
+    const details = urlParams.get('details');
+
+    // Populate the input fields with the extracted values
+    document.getElementById('title-input').value = title;
+    document.getElementById('summary-input').value = summary;
+    document.getElementById('details-input').value = details;
+}
+
+
+        // Function to save the changes made to the page
+        function saveChanges(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get the updated values from the input fields
+        var updatedTitle = document.getElementById('title-input').value;
+        var updatedSummary = document.getElementById('summary-input').value;
+        var updatedDetails = document.getElementById('details-input').value;
+
+        // Save the changes (you'll need to implement this)
+        saveChangesToPage(updatedTitle, updatedSummary, updatedDetails); // Implement this function to save the changes to the server or storage
+
+        // Redirect the user back to the new page
+        window.location.href = './newPageEntry.html'; // Redirect to the new page to see the changes
+
+        return false;
+    }
+
+        // Call the function to load the existing page data when the page loads
+        window.onload = loadPageData;
+
+        document.querySelector('.toggle-button').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

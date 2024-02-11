@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+    <div class="top-bar">
+        <h3><a href="home.html">Encyclopedia</a></h3>
+        <button class="toggle-button">&#9776;</button> <!-- Toggle button for sidebar -->
+    </div>
+    <aside class="sidebar"> <!-- Sidebar for navigation links -->
+        <ul class="nav-links">
+            <li><a href="./indexPage.html">Index</a></li>
+            <li><a href="./searchPage.html">Search</a></li>
+            <li><a href="./newPageEntry.html">New Page</a></li>
+            <li><a href="editPageEntry.html">Edit Page</a></li>
+            <li><a href="./randomArticle.html">Random Article</a></li>
+        </ul>
+    </aside>
+    
+    <!-- Search input -->
+    <div class="search-bar">
+        <form onsubmit="event.preventDefault(); search();"> <!-- Prevent form submission and call search function -->
+            <input type="text" class="search-input" placeholder="Search topic...">
+            <button type="submit">Search</button> <!-- Use type="submit" for the button -->
+        </form>
+    </div>
+
+    <!-- Display search results -->
+    <div id="search-results"></div>
+
+    <!-- Display trending articles -->
+    <div class="trending-articles">
+        <h2>Trending Articles</h2>
+        <div id="trending-articles-list"></div>
+    </div>
+
+
+    <script>
+        // Function to fetch data from JSON file
+        async function fetchData(url) {
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        }
+
+        // Function to display trending articles
+        async function displayTrendingArticles() {
+            const trendingData = await fetchData('trending.json');
+            const trendingArticlesList = document.getElementById("trending-articles-list");
+            trendingData.forEach(article => {
+                const articleCard = document.createElement("div");
+                articleCard.classList.add("article-card");
+                articleCard.innerHTML = `
+                    <h4>${article.title}</h4>
+                    <p>${article.description}</p>
+                    <a href="${article.url}">Read More</a>
+                `;
+                trendingArticlesList.appendChild(articleCard);
+            });
+        }
+
+        // Call function to display trending articles when the page loads
+        displayTrendingArticles();
+
+        // Function to search topics
+        async function search() {
+    const searchTerm = document.querySelector(".search-input").value.toLowerCase().trim(); // Trim whitespace
+    const searchResults = document.getElementById("search-results");
+
+    // Clear previous search results
+    searchResults.innerHTML = "";
+
+    // Fetch data from JSON file
+    const jsonData = await fetchData("articles.json");
+
+    // Debugging: Log fetched JSON data
+    console.log("Fetched JSON Data:", jsonData);
+
+    // Search through JSON data
+    const results = jsonData.filter(item => item.title.toLowerCase().includes(searchTerm));
+
+    // Debugging: Log search term and results
+    console.log("Search Term:", searchTerm);
+    console.log("Search Results:", results);
+
+    if (results.length === 0) {
+        searchResults.textContent = "No search results found.";
+    } else {
+        // Display search results
+        results.forEach(result => {
+            const resultItem = document.createElement("div");
+            resultItem.classList.add("search-item");
+            resultItem.innerHTML = `
+                <h4>${result.title}</h4>
+                <p>${result.description}</p>
+                <a href="${result.url}">Read More</a>
+            `;
+            searchResults.appendChild(resultItem);
+        });
+    }
+
+    return false; // Prevent default form submission behavior
+}
+
+
+        document.querySelector('.toggle-button').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

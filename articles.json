@@ -1,0 +1,74 @@
+[
+    {
+        "title": "Introduction to Art History",
+        "description": "An introductory course exploring the evolution of art through different periods and cultures.",
+        "category": "Art",
+        "url": "https://en.wikipedia.org/wiki/Art_history"
+    },
+    {
+        "title": "Biology Basics",
+        "description": "A beginner-friendly guide to understanding the fundamental concepts of biology.",
+        "category": "Science",
+        "url": "https://en.wikipedia.org/wiki/Biology"
+    },
+    {
+        "title": "Computer Science Essentials",
+        "description": "Essential concepts and principles of computer science, including algorithms and data structures.",
+        "category": "Computer Science",
+        "url": "https://en.wikipedia.org/wiki/Computer_science"
+    },
+    {
+        "title": "Digital Marketing Strategies",
+        "description": "Strategies and techniques for successful digital marketing campaigns across various platforms.",
+        "category": "Business",
+        "url": "https://www.quora.com/topic/Digital-Marketing"
+    },
+    {
+        "title": "English Literature Survey",
+        "description": "A comprehensive survey of English literature from the medieval period to contemporary works.",
+        "category": "Literature",
+        "url": "https://en.wikipedia.org/wiki/English_literature"
+    },
+    {
+        "title": "History of Mathematics",
+        "description": "Explore the fascinating history of mathematics and its contributions to science and society.",
+        "category": "Mathematics",
+        "url": "https://en.wikipedia.org/wiki/History_of_mathematics"
+    },
+    {
+        "title": "Mind and Consciousness",
+        "description": "Philosophical exploration of the nature of mind, consciousness, and subjective experience.",
+        "category": "Philosophy",
+        "url": "https://en.wikipedia.org/wiki/Philosophy_of_mind"
+    },
+    {
+        "title": "Psychology Fundamentals",
+        "description": "Fundamental principles and theories of psychology, including cognition, behavior, and emotion.",
+        "category": "Psychology",
+        "url": "https://en.wikipedia.org/wiki/Psychology"
+    },
+    {
+        "title": "Exploring the Universe",
+        "description": "Journey through the cosmos and explore the wonders of space, from planets to galaxies.",
+        "category": "Science",
+        "url": "https://en.wikipedia.org/wiki/Space_exploration"
+    },
+    {
+        "title": "Full Stack Web Development",
+        "description": "Comprehensive training program covering both frontend and backend web development technologies.",
+        "category": "Technology",
+        "url": "https://en.wikipedia.org/wiki/Web_development"
+    },
+    {
+        "title": "Ancient Civilizations",
+        "description": "Discover the ancient civilizations of the world and their contributions to human history.",
+        "category": "History",
+        "url": "https://en.wikipedia.org/wiki/Ancient_history"
+    },
+    {
+        "title": "Language Learning",
+        "description": "Learn new languages and explore different cultures through language learning programs and resources.",
+        "category": "Language",
+        "url": "https://www.quora.com/topic/Language-Learning"
+    }
+]

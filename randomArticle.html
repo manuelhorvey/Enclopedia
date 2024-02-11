@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+    <div class="top-bar">
+        <h3><a href="home.html">Encyclopedia</a></h3>
+        <button class="toggle-button">&#9776;</button> <!-- Toggle button for sidebar -->
+    </div>
+    <aside class="sidebar"> <!-- Sidebar for navigation links -->
+        <ul class="nav-links">
+            <li><a href="./indexPage.html">Index</a></li>
+            <li><a href="./searchPage.html">Search</a></li>
+            <li><a href="./newPageEntry.html">New Page</a></li>
+            <li><a href="editPageEntry.html">Edit Page</a></li>
+            <li><a href="./randomArticle.html">Random Article</a></li>
+        </ul>
+    </aside>
+
+    <div class="randomheader">
+        <h2>Random article</h2>
+        <p>Introducing the random article button, click it to be taken to a random article. It is a great way to learn something new</p>
+        <a href="#">
+            <button> Show me an article</button>
+        </a>
+    </div>
+    <script>
+        // Fetch the data from the JSON file
+        fetch('articles.json')
+            .then(response => response.json())
+            .then(data => {
+                // Get the button
+                const button = document.querySelector('.randomheader button');
+    
+                // Add a click event listener to the button
+                button.addEventListener('click', function(event) {
+                    // Prevent the default action
+                    event.preventDefault();
+    
+                    // Select a random article
+                    const randomIndex = Math.floor(Math.random() * data.length);
+                    const randomArticle = data[randomIndex];
+    
+                    // Create a div for the article
+                    const articleDiv = document.createElement('div');
+                    articleDiv.classList.add('random-article');
+    
+                    // Create the HTML for the article
+                    const articleHTML = `
+                        <h2>${randomArticle.title}</h2>
+                        <p>${randomArticle.description}</p>
+                        <a href="${randomArticle.url}">Read More</a>
+                    `;
+    
+                    // Set the innerHTML of the div
+                    articleDiv.innerHTML = articleHTML;
+    
+                    // Append the div to the body
+                    document.body.appendChild(articleDiv);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    
+        document.querySelector('.toggle-button').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

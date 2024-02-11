@@ -1,0 +1,406 @@
+/* Styles for top bar */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    background-color: whitesmoke;
+    padding: 5px;
+}
+body{
+    padding-bottom: 50px;
+}
+
+/* Styles for nav links */
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Active class for sidebar */
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hide the sidebar initially */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s ease;
+    z-index: 1000; 
+}
+
+.form-search {
+    border-radius: 5px;
+    padding: 5px;
+ 
+    margin-left: 15px;
+}
+
+.top-bar h3 a {
+    text-decoration: none;
+}
+
+.top-bar h3 a:hover {
+    background-color: #fff;
+    color: tomato;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+/* Styles for card */
+.card {
+    background-image: url('images/hubble.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px;
+    padding: 20px;
+    color: #fff; 
+    
+}
+
+.card-header {
+    padding: 10px;
+    border-radius: 15px;
+    top: 50%;
+    text-align: center;
+}
+
+.card-body {
+    padding: 10px;
+    text-align: center;
+    margin: 20px;
+    
+}
+
+.read-more-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.read-more-button:hover {
+    background-color: #555;
+}
+.card:hover{
+    transform: translateY(-5px);
+}
+
+
+section {
+   
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .top-bar {
+        flex-direction: row; 
+    }
+
+    .sidebar {
+        left: -250px; 
+    }
+
+    .sidebar.active {
+        left: 0; 
+    }
+}
+
+.Search-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+/* Style for the grid container */
+.featured-articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    justify-content: center;
+}
+
+/* Style for each card */
+.Voyager {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+
+
+/* Hover effect for cards */
+.Voyager:hover {
+    transform: translateY(-5px); 
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+.randomheader h2{
+    font-weight: bold;
+   margin-left: 50px;
+}
+
+.randomheader p{
+    margin-left: 50px;
+}
+
+.randomheader button{
+    background-color: #0066cc;
+    margin-left: 50px;
+    border-radius: 10px;
+    
+    flex-direction: row;
+    font-weight: bold;
+    color: white;
+}
+
+.randomheader button:hover{
+    background-color: #66b3ff;
+}
+
+.newPage {
+
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px; 
+}
+
+
+.title-input {
+    width: 30%; 
+    padding: 8px; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+}
+
+
+
+.summary-input {
+    width: 30%;
+    height: 30%; 
+    height: 30%;
+    padding: 8px; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+}
+
+
+
+.details-input {
+    width: 30%;
+    height: 30%; 
+    height: 30%;
+    padding: 20px; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+}
+
+form button{
+    background-color: #0066cc;
+    margin-left: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    width: 20%;
+    font-weight: bold;
+    color:white;
+}
+form button:hover{
+    background-color: #66b3ff;
+}
+
+
+/* Style for the random article */
+.random-article {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+    padding: 20px;
+    margin: 20px;
+}
+
+.random-article h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.random-article p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.random-article a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.page-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.page-card h3 {
+    margin-top: 0;
+}
+
+.page-card p {
+    margin: 10px 0;
+}
+
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+    display: flex;
+    margin: 25px;
+}
+
+.search-input {
+    width: 200px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for search results and trending articles */
+.search-item, .article-card {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 30%;
+    display:inline-block;
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+
+}
+
+.search-item h4, .article-card h4 {
+    color: #333;
+}
+
+.search-item p, .article-card p {
+    color: #666;
+}
+
+.search-item a, .article-card a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.search-item a:hover, .article-card a:hover {
+    text-decoration: underline;
+}
+
+/* Article list styles */
+#article-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Create a grid with flexible columns */
+    grid-gap: 20px; /* Add some space between grid items */
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #article-list li {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  #article-list a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  #article-list a:hover {
+    background-color: #ddd;
+  }
+
+
+
+

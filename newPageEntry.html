@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a new page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+    <div class="top-bar">
+        <h3><a href="home.html">Encyclopedia</a></h3>
+        <button class="toggle-button">&#9776;</button> <!-- Toggle button for sidebar -->
+    </div>
+    <aside class="sidebar"> <!-- Sidebar for navigation links -->
+        <ul class="nav-links">
+            <li><a href="./indexPage.html">Index</a></li>
+            <li><a href="./searchPage.html">Search</a></li>
+            <li><a href="./newPageEntry.html">New Page</a></li>
+            <li><a href="editPageEntry.html">Edit Page</a></li>
+            <li><a href="./randomArticle.html">Random Article</a></li>
+        </ul>
+    </aside>
+
+    <div class="newPage">
+        <h2>Create a new page</h2>
+
+        <form class="input-form" onsubmit="return addNewPage(event)">
+            <div class="input-group">
+                
+                <input id="title-input" class="title-input" type="text" placeholder="Enter the title..." required />
+                <p class="input-description">You are creating a page for a term that is not yet in our database.<br/> If you're looking for an existing page, please use the search bar above.</p>
+            </div>
+            
+            <div class="input-group">
+                
+                <textarea id="summary-input" class="summary-input" placeholder="Enter a summary..." rows="5" required></textarea>
+                <p class="input-description">A good summary should be a few sentences long <br/>and include the most important information about the topic</p>
+            </div>
+            
+            <div class="input-group">
+                
+                <textarea id="details-input" class="details-input" placeholder="Enter details..." required></textarea>
+                <p class="input-description">Add more detailed information about the topic here.<br/> If you have specific sources, please add citations</p>
+            </div>
+            
+            <button id="submit-btn" type="submit" disabled>Save</button>
+        </form>
+    </div>
+
+    <div id="page-cards-container"></div>
+
+    <script>
+        function addNewPage(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input values
+    var title = document.getElementById('title-input').value;
+    var summary = document.getElementById('summary-input').value;
+    var details = document.getElementById('details-input').value;
+
+    // Create a new card
+    var card = document.createElement('div');
+    card.classList.add('page-card');
+    card.innerHTML = `
+        <h3>${title}</h3>
+        <p>${summary}</p>
+        <p>${details}</p>
+    `;
+    card.addEventListener('click', function() {
+        // Redirect to the edit page with URL parameters
+        window.location.href = `./editPageEntry.html?title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}&details=${encodeURIComponent(details)}`;
+    });
+
+    // Append the card to the container
+    var container = document.getElementById('page-cards-container');
+    container.appendChild(card);
+
+    // Clear form inputs
+    document.getElementById('title-input').value = '';
+    document.getElementById('summary-input').value = '';
+    document.getElementById('details-input').value = '';
+
+    // Disable submit button after successful submission
+    document.getElementById('submit-btn').disabled = true;
+
+    return false;
+}
+
+
+        // Enable submit button when all required fields are filled
+        document.querySelectorAll('.input-form input, .input-form textarea').forEach(input => {
+            input.addEventListener('input', function() {
+                var title = document.getElementById('title-input').value;
+                var summary = document.getElementById('summary-input').value;
+                var details = document.getElementById('details-input').value;
+
+                if (title.trim() !== '' && summary.trim() !== '' && details.trim() !== '') {
+                    document.getElementById('submit-btn').disabled = false;
+                } else {
+                    document.getElementById('submit-btn').disabled = true;
+                }
+            });
+        });
+
+        document.querySelector('.toggle-button').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

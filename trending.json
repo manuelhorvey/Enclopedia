@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Eye",
+        "description": "Information about the anatomy and functions of the human eye.",
+        "category": "Anatomy",
+        "url": "https://en.wikipedia.org/wiki/Eye"
+    },
+    {
+        "title": "Liver",
+        "description": "Explore the structure and functions of the liver in the human body.",
+        "category": "Anatomy",
+        "url": "https://en.wikipedia.org/wiki/Liver"
+    },
+    {
+        "title": "Digestive System",
+        "description": "An overview of the digestive system, including its organs and functions.",
+        "category": "Anatomy",
+        "url": "https://en.wikipedia.org/wiki/Digestive_system"
+    },
+    {
+        "title": "Human Body",
+        "description": "Learn about the different systems and organs that make up the human body.",
+        "category": "Anatomy",
+        "url": "https://en.wikipedia.org/wiki/Human_body"
+    },
+    {
+        "title": "Respiratory System",
+        "description": "An exploration of the respiratory system's structure and functions.",
+        "category": "Anatomy",
+        "url": "https://en.wikipedia.org/wiki/Respiratory_system"
+    },
+    {
+        "title": "Brain",
+        "description": "Discover the structure and functions of the human brain.",
+        "category": "Anatomy",
+        "url": "https://en.wikipedia.org/wiki/Brain"
+    },
+    {
+        "title": "Heart",
+        "description": "Explore the anatomy and functions of the heart, a vital organ in the circulatory system.",
+        "category": "Anatomy",
+        "url": "https://en.wikipedia.org/wiki/Heart"
+    }
+]
