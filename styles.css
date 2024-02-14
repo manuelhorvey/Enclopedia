@@ -3,26 +3,62 @@
     display: flex;
     align-items: center;
     justify-content: space-between; 
-    background-color: whitesmoke;
-    padding: 5px;
+    background-color: #f5f5f5;
+    padding: 10px;
 }
+
 body{
-    padding-bottom: 50px;
+    padding: 10px;
+    margin-left: 1.3rem;
 }
 
 /* Styles for nav links */
 .nav-links {
     list-style: none;
     padding: 0;
-    margin: 20px 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Styles for sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+/* Styles for sidebar links */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: lightcoral;
 }
 
 .nav-links li {
-    margin-bottom: 10px;
+    margin: 0 10px; 
 }
 
 .nav-links a {
-    color: #fff;
+    color: #000; 
     text-decoration: none;
     padding: 10px;
     display: block;
@@ -30,7 +66,7 @@ body{
 }
 
 .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #ddd;
 }
 
 /* Active class for sidebar */
@@ -41,12 +77,33 @@ body{
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Hide the sidebar initially */
+    left: -250px;
     width: 250px;
     height: 100%;
     background-color: #333;
     transition: left 0.3s ease;
-    z-index: 1000; 
+    z-index: 1000;
+}
+
+/* Hide toggle button by default */
+.toggle-button {
+    display: none;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .nav-links {
+        display: none; 
+    }
+    
+    .toggle-button {
+        display: block; 
+    }
+
+    /* Adjust top bar for smaller screens */
+    .top-bar {
+        flex-direction: column; /* Stack the items vertically */
+    }
 }
 
 .form-search {
@@ -165,6 +222,7 @@ section {
     justify-content: center;
 }
 
+
 /* Style for each card */
 .Voyager {
     background-color: #ffffff;
@@ -181,13 +239,6 @@ section {
 /* Hover effect for cards */
 .Voyager:hover {
     transform: translateY(-5px); 
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
 }
 
 .randomheader h2{
@@ -353,11 +404,14 @@ form button:hover{
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
-    width: 30%;
-    display:inline-block;
-    margin-left: 20px;
+    flex: 0 0 30%; /* Set the width to 30% */
+    margin-left: 10px;
+    margin-right: 10px;
     transition: transform 0.3s ease;
+}
 
+.article-card:hover{
+    transform: translateY(-5px);
 }
 
 .search-item h4, .article-card h4 {

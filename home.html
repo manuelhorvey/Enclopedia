@@ -10,8 +10,6 @@
     <div class="top-bar">
         <h3><a href="home.html">Encyclopedia</a></h3>
         <button class="toggle-button">&#9776;</button> <!-- Toggle button for sidebar -->
-    </div>
-    <aside class="sidebar"> <!-- Sidebar for navigation links -->
         <ul class="nav-links">
             <li><a href="./indexPage.html">Index</a></li>
             <li><a href="./searchPage.html">Search</a></li>
@@ -19,61 +17,64 @@
             <li><a href="editPageEntry.html">Edit Page</a></li>
             <li><a href="./randomArticle.html">Random Article</a></li>
         </ul>
-    </aside>
-    <section>
-        <div class="card">
-        <div class="card-header">
-            <h2>Hubble Space Telescope</h2>
-            <p>A space Telescope that has been instrumental in providing the best images of deep space over the past 30 years.</p>
-        </div>
-        <a href="https://theconversation.com/you-can-see-the-hubble-space-telescope-in-the-sky-above-41022">
-            <button class="read-more-button"> Readmore</button>
-           
-        </a>
-        
+    </div>    
+    <div class="sidebar">
+        <ul>
+            <li><a href="./indexPage.html">Index</a></li>
+            <li><a href="./searchPage.html">Search</a></li>
+            <li><a href="./newPageEntry.html">New Page</a></li>
+            <li><a href="editPageEntry.html">Edit Page</a></li>
+            <li><a href="./randomArticle.html">Random Article</a></li>
+        </ul>
     </div>
     
-    <h3>Featured Articles</h3>
+    <section>
+        <div class="card">
+            <div class="card-header">
+                <h2>Hubble Space Telescope</h2>
+                <p>A space Telescope that has been instrumental in providing the best images of deep space over the past 30 years.</p>
+            </div>
+            <a href="https://theconversation.com/you-can-see-the-hubble-space-telescope-in-the-sky-above-41022">
+                <button class="read-more-button">Read More</button>
+            </a>
+        </div>
+        
+        <h3>Featured Articles</h3>
+        <div class="featured-articles"></div>
+    </section>
+
     <script>
         // Fetch the data from the JSON file
         fetch('articles.json')
             .then(response => response.json())
             .then(data => {
                 // Get the container where you want to add the articles
-                const container = document.querySelector('section');
-    
-                // Create a div for the featured articles
-                const featuredArticlesDiv = document.createElement('div');
-                featuredArticlesDiv.classList.add('featured-articles');
-    
+                const container = document.querySelector('.featured-articles');
+
                 // Loop through each article in the data
                 data.forEach(article => {
                     // Create a new div for the article
                     const articleDiv = document.createElement('div');
                     articleDiv.classList.add('Voyager');
-    
+
                     // Create the HTML for the article
                     const articleHTML = `
                         <h3><a href="${article.url}">${article.title}</a></h3>
                         <p>${article.description}</p>
                     `;
-    
+
                     // Set the innerHTML of the div
                     articleDiv.innerHTML = articleHTML;
-    
+
                     // Append the div to the featured articles div
-                    featuredArticlesDiv.appendChild(articleDiv);
+                    container.appendChild(articleDiv);
                 });
-    
-                // Append the featured articles div to the container
-                container.appendChild(featuredArticlesDiv);
             })
             .catch(error => console.error('Error:', error));
-    
+
         document.querySelector('.toggle-button').addEventListener('click', function() {
             document.querySelector('.sidebar').classList.toggle('active');
         });
     </script>
-    
 </body>
 </html>
